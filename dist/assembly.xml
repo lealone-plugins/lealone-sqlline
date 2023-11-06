@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+ * Copyright Lealone Database Group.
+ * Licensed under the Server Side Public License, v 1.
+ * Initial Developer: zhh
+-->
+<assembly>
+    <formats>
+        <format>dir</format>
+    </formats>
+
+    <baseDirectory>/</baseDirectory>
+    <fileSets>
+        <fileSet>
+            <directory>dist/bin</directory>
+            <outputDirectory>bin</outputDirectory>
+        </fileSet>
+    </fileSets>
+
+    <moduleSets>
+        <moduleSet>
+            <includes>
+                <include>org.lealone.plugins:lealone-sqlline</include>
+            </includes>
+            <binaries>
+                <unpack>false</unpack>
+                <outputDirectory>target/lealone-sqlline</outputDirectory>
+                <dependencySets>
+                    <dependencySet>
+                        <useTransitiveFiltering>true</useTransitiveFiltering>
+                        <useTransitiveDependencies>true</useTransitiveDependencies>
+                        <excludes>
+                            <exclude>org.lealone:lealone-main</exclude>
+                        </excludes>
+                    </dependencySet>
+                </dependencySets>
+            </binaries>
+        </moduleSet>
+    </moduleSets>
+</assembly>
