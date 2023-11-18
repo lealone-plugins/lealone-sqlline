@@ -1,6 +1,6 @@
 # lealone-sqlline
 
-基于 SQLLine 开发的 Lealone 带彩色的命令行客户端
+基于 SQLLine 开发的带彩色的 Lealone 命令行客户端
 
 
 ## 编译需要
