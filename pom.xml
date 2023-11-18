@@ -14,14 +14,19 @@
 
     <artifactId>lealone-sqlline</artifactId>
     <packaging>jar</packaging>
-    <version>6.0.0-SNAPSHOT</version>
+    <version>6.0.0</version>
 
     <dependencies>
         <dependency>
             <groupId>org.lealone</groupId>
             <artifactId>lealone-main</artifactId>
-            <version>${project.version}</version>
+            <version>5.2.0</version>
             <scope>provided</scope>
+        </dependency>
+        <dependency>
+            <groupId>org.lealone</groupId>
+            <artifactId>lealone-client</artifactId>
+            <version>5.2.0</version> 
         </dependency>
 
         <dependency>
@@ -36,20 +41,8 @@
         </dependency>
     </dependencies>
 
-	<build>
+    <build>
         <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-            </plugin>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
-            </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
@@ -64,8 +57,10 @@
                             <transformers>
                                 <!-- 合并多个服务接口文件，就是在META-INF/services目录下的那些文件，可能有多个 -->
                                 <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer"/>
-                                <transformer implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
+                                <transformer
+                                    implementation="org.apache.maven.plugins.shade.resource.ManifestResourceTransformer">
                                     <manifestEntries>
+                                        <Main-Class>org.lealone.plugins.sqlline.SqlLine</Main-Class>
                                          <!-- 让log4j2选择合适的jdk，避免启动时出现WARNING: sun.reflect.Reflection.getCallerClass is not supported -->
                                         <Multi-Release>true</Multi-Release>
                                         <Built-By>Lealone Database Group</Built-By>
@@ -80,87 +75,11 @@
                                     </excludes>
                                 </filter>
                             </filters>
-                            <outputFile>target/lealone-sqlline-plugin-${project.version}/lib/lealone-sqlline-plugin-${project.version}.jar</outputFile>
+                            <outputFile>target/lealone-sqlline-client-${project.version}.jar</outputFile>
                         </configuration>
                     </execution>
                 </executions>
-            </plugin>
+            </plugin> 
         </plugins>
-        <pluginManagement>
-            <plugins>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-compiler-plugin</artifactId>
-                    <version>3.8.1</version>
-                    <configuration>
-                        <source>1.8</source>
-                        <target>1.8</target>
-                        <release>8</release>
-                        <encoding>UTF-8</encoding>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-source-plugin</artifactId>
-                    <version>2.4</version>
-                    <executions>
-                        <execution>
-                            <id>attach-sources</id>
-                            <goals>
-                                <goal>jar</goal>
-                            </goals>
-                        </execution>
-                    </executions>
-                    <configuration>
-                        <archive>
-                            <manifestEntries>
-                                <Built-By>Lealone Database Group</Built-By>
-                            </manifestEntries>
-                        </archive>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-resources-plugin</artifactId>
-                    <version>2.5</version>
-                    <configuration>
-                        <encoding>UTF-8</encoding>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-jar-plugin</artifactId>
-                    <version>2.4</version>
-                    <configuration>
-                        <archive>
-                            <manifestEntries>
-                                <Built-By>Lealone Database Group</Built-By>
-                            </manifestEntries>
-                        </archive>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-surefire-plugin</artifactId>
-                    <version>2.12</version>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>maven-assembly-plugin</artifactId>
-                    <version>2.2-beta-5</version>
-                    <configuration>
-                        <finalName>lealone-sqlline-plugin-${project.version}</finalName>
-                        <descriptors>
-                            <descriptor>dist/assembly.xml</descriptor>
-                        </descriptors>
-                    </configuration>
-                </plugin>
-                <plugin>
-                    <groupId>org.apache.maven.plugins</groupId>
-                    <artifactId>versions-maven-plugin</artifactId>
-                    <version>2.1</version>
-                </plugin>
-            </plugins>
-        </pluginManagement>
     </build>
 </project>

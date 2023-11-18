@@ -26,7 +26,6 @@ import com.typesafe.config.ConfigFactory;
 
 import sqlline.Application;
 import sqlline.CommandHandler;
-import sqlline.ConnectionMetadata;
 import sqlline.OutputFormat;
 import sqlline.PromptHandler;
 import sqlline.ReflectiveCommandHandler;
@@ -177,12 +176,12 @@ public class SqlLineApplication extends Application {
                     builder.style(resolveStyle("f:y"));
                     builder.append("lealone");
 
-                    ConnectionMetadata meta = sqlLine.getConnectionMetadata();
-
-                    String currentSchema = meta.getCurrentSchema();
-                    if (currentSchema != null) {
-                        builder.append(" (").append(currentSchema).append(")");
-                    }
+                    // ConnectionMetadata meta = sqlLine.getConnectionMetadata();
+                    //
+                    // String currentSchema = meta.getCurrentSchema();
+                    // if (currentSchema != null) {
+                    // builder.append(" (").append(currentSchema).append(")");
+                    // }
                     return builder.style(resolveStyle("default")).append("> ").toAttributedString();
                 }
             };

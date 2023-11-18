@@ -28,8 +28,8 @@ echo    options:
 echo    -e            mvn eclipse:eclipse
 echo    -ec           mvn eclipse:clean
 echo    -es           mvn eclipse:eclipse -DdownloadSources=true
-echo    -p            mvn package assembly:assembly -Dmaven.test.skip=true
-echo    -pc           mvn clean package assembly:assembly -Dmaven.test.skip=true
+echo    -p            mvn package -Dmaven.test.skip=true
+echo    -pc           mvn clean package -Dmaven.test.skip=true
 echo    -i            mvn install -Dmaven.test.skip=true
 echo    -c            mvn clean
 echo    -dt           mvn dependency:tree
@@ -49,11 +49,11 @@ call mvn eclipse:eclipse -DdownloadSources=true
 goto end
 
 :p
-call mvn package assembly:assembly -Dmaven.test.skip=true
+call mvn package -Dmaven.test.skip=true
 goto end
 
 :pc
-call mvn clean package assembly:assembly -Dmaven.test.skip=true
+call mvn clean package -Dmaven.test.skip=true
 goto end
 
 :c
