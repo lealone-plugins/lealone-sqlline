@@ -34,7 +34,7 @@ lealone> SELECT * FROM test;
 +----+----+
 1 row selected (0.014 seconds)
 lealone> !quit
-Closing: org.lealone.client.jdbc.JdbcConnection
+Closing: com.lealone.client.jdbc.JdbcConnection
 ```
 
 

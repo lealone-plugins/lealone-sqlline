@@ -3,7 +3,7 @@
  * Licensed under the Server Side Public License, v 1.
  * Initial Developer: zhh
  */
-package org.lealone.plugins.sqlline;
+package com.lealone.plugins.sqlline;
 
 import java.io.IOException;
 import java.net.URL;
@@ -17,9 +17,9 @@ import java.util.stream.Collectors;
 import org.jline.reader.impl.completer.StringsCompleter;
 import org.jline.utils.AttributedString;
 import org.jline.utils.AttributedStringBuilder;
-import org.lealone.common.logging.Logger;
-import org.lealone.common.logging.LoggerFactory;
-import org.lealone.db.Constants;
+import com.lealone.common.logging.Logger;
+import com.lealone.common.logging.LoggerFactory;
+import com.lealone.db.Constants;
 
 import com.typesafe.config.Config;
 import com.typesafe.config.ConfigFactory;

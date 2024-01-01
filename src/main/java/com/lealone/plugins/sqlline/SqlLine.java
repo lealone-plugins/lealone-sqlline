@@ -3,12 +3,12 @@
  * Licensed under the Server Side Public License, v 1.
  * Initial Developer: zhh
  */
-package org.lealone.plugins.sqlline;
+package com.lealone.plugins.sqlline;
 
 import java.io.IOException;
 
-import org.lealone.db.ConnectionInfo;
-import org.lealone.main.Lealone;
+import com.lealone.db.ConnectionInfo;
+import com.lealone.main.Lealone;
 
 public class SqlLine extends sqlline.SqlLine {
 
