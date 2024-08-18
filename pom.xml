@@ -9,24 +9,24 @@
     <parent>
         <groupId>com.lealone.plugins</groupId>
         <artifactId>lealone-plugins</artifactId>
-        <version>6.0.0</version>
+        <version>6.0.1</version>
     </parent>
 
     <artifactId>lealone-sqlline</artifactId>
     <packaging>jar</packaging>
-    <version>6.0.0</version>
+    <version>6.0.1</version>
 
     <dependencies>
         <dependency>
             <groupId>com.lealone</groupId>
             <artifactId>lealone-main</artifactId>
-            <version>6.0.0</version>
+            <version>6.0.1</version>
             <scope>provided</scope>
         </dependency>
         <dependency>
             <groupId>com.lealone</groupId>
             <artifactId>lealone-client</artifactId>
-            <version>6.0.0</version> 
+            <version>6.0.1</version> 
         </dependency>
 
         <dependency>

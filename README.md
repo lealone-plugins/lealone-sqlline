@@ -13,12 +13,12 @@
 
 运行 `mvn clean package`
 
-生成 jar 包 `target/lealone-sqlline-client-6.0.0.jar`
+生成 jar 包 `target/lealone-sqlline-client-6.0.1.jar`
 
 
 ## 运行客户端
 
-打开一个命令行客户端，运行 `java -jar lealone-sqlline-client-6.0.0.jar`
+打开一个命令行客户端，运行 `java -jar lealone-sqlline-client-6.0.1.jar`
 
 ```sql
 Lealone version: 5.2.0
